@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-purple-600 text-white hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+  }
+
+  .input {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden;
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-300 hover:shadow-xl;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Quiz transitions */
+.quiz-transition-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.quiz-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.quiz-transition-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.quiz-transition-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 300ms, transform 300ms;
+}
